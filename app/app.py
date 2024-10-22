@@ -108,7 +108,7 @@ def extract_entities_from_query(query):
     """Extract important keywords or entities like technologies, tools, or tasks."""
     entities = []
     
-    query = re.sub(r'\bwhat\b|\blist\b|\ball\b|\bfor\b|\basset\b|\bassets\b|\brelated to\b|\bshow\b|\bgive\b|\bretrieve\b|\babout\b|\bon\b|\bof\b|\bassociated with\b|\bme\b|\bthe\b|\ba\b|\blinked to\b|\blinked with\b|\bis\b|\bare\b|\bin\b|\bto\b|\band\b|\bwith\b|\bfrom\b', '', query, flags=re.IGNORECASE).strip()
+    query = re.sub(r'\bwhat\b|\blist\b|\ball\b|\bfor\b|\basset\b|\bassets\b|\brelated to\b|\bshow\b|\bgive\b|\bretrieve\b|\babout\b|\bon\b|\bof\b|\bassociated with\b|\bme\b|\bthe\b|\ba\b|\blinked to\b|\blinked with\b|\bis\b|\bare\b|\bin\b|\bto\b|\band\b|\bwith\b|\bfrom\b|\bby\b|\bauthored by\b|\bwritten by\b|\bcreated by\b|\brelated to\b|\bassociated with\b|\bdeveloped by\b|\bconnected to\b|\bbuilt by\b|\bmade by\b|\bprepared by\b', '', query, flags=re.IGNORECASE).strip()
     
     for keyword in tech_keywords:
         if re.search(r'\b' + re.escape(keyword) + r'\b', query, re.IGNORECASE):

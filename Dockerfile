@@ -28,6 +28,7 @@ RUN pip install --no-cache-dir -r requirements.txt --trusted-host pypi.org --tru
 # Copy the rest of the application code from the local machine to the container
 COPY . .
 
+WORKDIR /app/app
 # Ensure necessary directories are present and set proper permissions
 RUN mkdir -p /.cache \
     && chmod -R 777 /app \
@@ -37,4 +38,4 @@ RUN mkdir -p /.cache \
 EXPOSE 8000
 
 # Command to run the FastAPI application using Uvicorn, binding it to all network interfaces (0.0.0.0)
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "src:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
